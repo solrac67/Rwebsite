@@ -1,0 +1,19 @@
+---
+title: 'NYSE: New York Stock Exchange'
+---
+
+## NYSE ON THE MAP
+
+```{r, fig.width=9.5}
+
+  library(leaflet)
+  
+  m <- leaflet() %>%
+  addTiles() %>%  
+  addMarkers(lng = -74.011322, lat = 40.706913, popup="The NYSE")
+
+  m
+
+```
+
+

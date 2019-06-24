@@ -1,0 +1,26 @@
+name: "webR"
+output_dir: "."
+navbar:
+  title: "QUANT R"
+  left:
+    - text: " Home"
+      icon: fa-home
+      href: index.html
+    - text: " NYSE Map"
+      icon: fa-info
+      href: about.html
+    - text: " Embeded SageMath Cells"
+      icon: fa-infinity
+      href: embededSageCells.html
+      
+  right:
+    - text: " Github"
+      icon: fa-github
+      href: https://github.com/solrac67/Rwebsite
+output:
+  html_document:
+    theme: cerulean
+    highlight: textmate
+    include:
+      after_body: footer.html
+

@@ -1,0 +1,59 @@
+
+
+
+---
+title: "Embeded SageMath Cells"
+---
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activar'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluar'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.computeR',
+                           languages: ["r"],
+                           evalButtonText: 'Evaluar'});                       
+</script>
+
+<h2>Cálculos con Sage:</h2>
+  Click en el botón "Activar".
+<div id="mycell">
+<script type="text/x-sage">
+@interact
+def _(a=(0, 10)):
+     print("El coseno de "+ str(a) +" es "+str(cos(a))) 
+plot(cos(x),(x, 0, 10))
+</script>
+</div>
+<br><br>
+ Click en el botón "Evaluar".
+<div class="compute">
+<script type="text/x-sage">plot(sin(x), (x, 0, 2*pi))
+</script>
+</div>
+<br><br>
+ Click en el botón "Evaluar".
+<div class="compute">
+<script type="text/x-sage">
+@interact
+def f(n=(0, 10)):
+    print(2^n)
+</script>
+</div>
+<br><br>
+<h2>Código en lenguaje R: Representación tridimensional de un volcán</h2>
+Click en el botón "Evaluar".
+<div class="computeR">
+<script type="text/x-sage">
+persp(x = 10*(1:nrow(volcano)), y=10*(1:ncol(volcano)), z=3*volcano, 
+      theta = 135, phi = 30, col = "green3", scale = FALSE,
+      ltheta = -120, shade = 0.75, border = NA, box = FALSE, main="Volcán Maunga Whau, Auckland, NZ")
+</script>
+</div>
+<br>
+
+

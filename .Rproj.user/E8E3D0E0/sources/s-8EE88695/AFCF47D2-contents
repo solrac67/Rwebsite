@@ -1,0 +1,41 @@
+---
+title: "QUANTITATIVE INVESTMENT ANALYTICS IN R"
+---
+
+<h2><span class="badge badge-secondary"></span></h2>
+
+
+
+## CANDLESTICK CHART
+
+<script>
+var f = new Date();
+$('span.badge').html(f.getFullYear() + "/" + (f.getMonth() +1) + "/" + f.getDate());
+$('span.badge').css("font-size","20px");
+</script>
+
+```{r ibex, fig.width=9.5, echo = FALSE, message = FALSE, warning =          FALSE}
+library(tidyquant)
+library(timetk)
+library(dygraphs)
+
+ibex35 <- tq_get("^IBEX", get = "stock.prices", from = "2018-04-01", to = Sys.Date())
+ibex35c <- data.frame(date = ibex35[,1], open = ibex35[,2], high = ibex35[,3], low = ibex35[,4], close = ibex35[,5])
+ibex35c <- tk_xts(ibex35c)
+dygraph(ibex35c, main = "IBEX-35") %>%
+  dyAxis("y", label = "Index value ( points )") %>%
+  dyCandlestick()
+
+
+
+```
+
+## IBEX-35 table
+
+```{r tabla, echo = FALSE, message = FALSE, warning = FALSE}
+ 
+library(DT)
+
+datatable(ibex35, rownames = FALSE) 
+
+```
